@@ -1,0 +1,246 @@
+@font-face {
+    font-family: "Exo 2.0 Thin";
+    src: url("Exo20-Thin.woff2") format("woff2"),
+         url("Exo20-Thin.woff") format("woff");
+    font-weight: 100;
+    font-style: normal;
+    font-display: swap;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html,
+body {
+    margin: 0;
+}
+
+.main {
+    min-height: 100vh;
+    min-width: 100vh;
+    background-image: url("../images/background.png");
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.container .main-title {
+    font-family: "Exo 2.0 Thin", arial;
+    font-size: 36px;
+    color:white;
+    text-align: center;
+}
+
+.catboxes {
+    display: flex;
+    justify-content: center;
+    margin-top: 0;
+    padding-top: 0;
+}
+
+.catbox-wrapper {
+    position: relative;
+    margin: 20px;
+    height: 512px;
+    width: 320px;
+}
+
+.catbox-outer {
+    height: 480px;
+    width: 320px;
+    padding: 4px;
+    background-color: #1698d9;
+    clip-path: polygon(43px 0, 100% 0, 100% 100%, 0 100%, 0 43px);
+    border-radius: 11px;
+}
+
+.catbox-wrapper .suptitle {
+    display: block;
+}
+
+.catbox-wrapper .suptitle-selected-hover {
+    display: none;
+}
+
+.catbox-wrapper.selected:hover:not(.mouseover) .suptitle-selected-hover {
+    display: block;
+    color: #e62e7a;
+}
+
+.catbox-wrapper.selected:hover:not(.mouseover) .suptitle {
+    display: none;
+} 
+
+.catbox-wrapper.selected .catbox-outer {
+    background-color: #d91667;
+}
+
+.catbox-wrapper .underbox-default {
+    display: block;
+}
+
+.catbox-wrapper .underbox-disabled {
+    display: none;
+}
+
+.catbox-wrapper .underbox-selected {
+    display: none;
+}
+
+.catbox-wrapper.selected .underbox-selected {
+    display: block;
+}
+
+.catbox-wrapper.selected .underbox-default {
+    display: none;
+}
+
+.catbox-wrapper.selected .underbox-disabled {
+    display: none;
+}
+
+.catbox-wrapper:hover:not(.mouseover):not(.empty) .catbox-outer {
+    background-color: #2ea8e6; 
+}
+
+.catbox-wrapper.selected:hover:not(.mouseover) .catbox-outer {
+    background-color: #e62e7a;
+}
+
+.catbox-wrapper.empty .catbox-outer {
+    background-color: #b3b3b3;
+}
+
+.catbox-wrapper.empty .catbox {
+    opacity: 50%;
+}
+
+.catbox-wrapper.empty .underbox-disabled {
+    display: block;
+}
+
+.catbox-wrapper.empty .underbox-default {
+    display: none;
+}
+
+.catbox-wrapper.empty .underbox-selected {
+    display: none;
+}
+
+.catbox-wrapper.empty .circle {
+    background-color: #b3b3b3;
+}
+
+.catbox {
+    position: relative;
+    height: 472px;
+    width: 312px;
+    background: url("../images/funbox_logo.png") 50% 180% / 370px auto no-repeat white;
+    clip-path: polygon(41px 0, 100% 0, 100% 100%, 0 100%, 0 41px);
+    border-radius: 7px;
+}
+
+.catbox .circle {
+    position: absolute;
+    height: 80px;
+    width: 80px;
+    background-color: #1698d9;
+    border-radius: 50%;
+    right: 10px;
+    bottom: 10px;
+    font-family: "Trebuchet MS", Arial, sans-serif;
+    text-align: center;
+    color: white;
+}
+
+.circle .weight {
+    margin: 10px 0 0;
+    font-size: 42px;
+    line-height: 42px;
+}
+
+.circle .kilo {
+    margin: 0;
+    font-size: 21px;
+    line-height: 22px;
+}
+
+.catbox-wrapper.selected .circle {
+    background-color: #d91667;
+}
+
+.catbox-wrapper:hover:not(.mouseover):not(.empty) .circle {
+    background-color: #2ea8e6;
+}
+
+.catbox-wrapper.selected:hover:not(.mouseover) .circle {
+    background-color: #e62e7a;
+}
+
+.underbox span {
+    color: #1698d9;
+    border-bottom: 2px dotted #1698d9; 
+}
+
+.catbox-description {
+    position: absolute;
+    top: 20px;
+    left: 40px;  
+}
+
+.catbox-description p {
+    font-family: "Trebuchet MS", Arial, sans-serif;
+    font-size: 16px;
+    color: #666666;
+}
+
+.catbox-description .title {
+    font-family: "Trebuchet MS", Arial, sans-serif;
+    font-weight: bold;
+    font-size: 48px;
+    margin-top: 0;
+    margin-bottom: 8px;
+}
+
+.catbox-description .subtitle {
+    font-family: "Trebuchet MS", Arial, sans-serif;
+    font-weight: bold;
+    font-size: 24px; 
+    margin-top: 0;
+    margin-bottom: 8px;
+}
+
+.catbox-description .portion {
+    font-family: "Trebuchet MS", Arial, sans-serif;
+    font-size: 14px;
+    color: #5a5a58;
+}
+
+.underbox {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 16px 0 0;
+    text-align: center;
+    color: white;
+    font-size: 13px;
+}
+
+.underbox-disabled {
+    color: yellow;
+}
+
+@media(max-width: 768px) {
+    .catboxes {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
+@media(max-width: 992px) {
+    .catboxes {
+        flex-wrap: wrap-reverse;
+    }
+}
